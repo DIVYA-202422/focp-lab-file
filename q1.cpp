@@ -1,18 +1,55 @@
 #include <iostream>
-#include <string> 
 using namespace std;
 
-int main() {
-    string name; 
-    int age;
+void printButterfly(int n) {
+    // Upper half of the butterfly
+    for (int i = 1; i <= n; i++) 
+    {
+        // Left wing
+        for (int j = 1; j <= i; j++) 
+        {
+            cout << "*";
+        }
+        // Spaces
+        for (int j = 1; j <= 2 * (n - i); j++) 
+        {
+            cout << " ";
+        }
+        // Right wing
+        for (int j = 1; j <= i; j++) 
+        {
+            cout << "*";
+        }
+        cout << endl;
+    }
+    
+    // Lower half of the butterfly
+    for (int i = n; i >= 1; i--) 
+    {
+        // Left wing
+        for (int j = 1; j <= i; j++) 
+        {
+            cout << "*";
+        }
+        // Spaces
+        for (int j = 1; j <= 2 * (n - i); j++) 
+        {
+            cout << " ";
+        }
+        // Right wing
+        for (int j = 1; j <= i; j++) 
+        {
+            cout << "*";
+        }
+        cout << endl;
+    }
+}
 
-    cout << "Enter your name: ";
-    getline(cin, name); 
-
-    cout << "Enter your age: ";
-    cin >> age;
-
-    cout << "Hello, " << name << "! You are " << age << " years old!" << endl;
-
+int main() 
+{
+    int n;
+    cout << "Enter the size of the butterfly pattern: ";
+    cin >> n;
+    printButterfly(n);
     return 0;
 }

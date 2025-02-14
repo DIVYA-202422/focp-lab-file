@@ -1,31 +1,34 @@
-#include <iostream>
-#include <cmath>
+//Write a program to find the row in a 2D matrix that has the maximum sum of its elements.  
+#include<iostream>
 using namespace std;
-int main() {
-    double a, b, c, discriminant, root1, root2;
-
-    cout << "Enter coefficients a, b, and c: ";
-    cin >> a >> b >> c;
-
-    discriminant = b * b - 4 * a * c;
-
-    if (discriminant > 0) {
-        root1 = (-b + sqrt(discriminant)) / (2 * a);
-        root2 = (-b - sqrt(discriminant)) / (2 * a);
-        cout << "Roots are real and different.\n";
-        cout << "Root 1 = " << root1 << "\n";
-        cout << "Root 2 = " << root2 << "\n";
-    } else if (discriminant == 0) {
-        root1 = -b / (2 * a);
-        cout << "Root is real and same.\n";
-        cout << "Root = " << root1 << "\n";
-    } else {
-        double realPart = -b / (2 * a);
-        double imaginaryPart = sqrt(-discriminant) / (2 * a);
-        cout << "Roots are complex and different.\n";
-        cout << "Root 1 = " << realPart << " + " << imaginaryPart << "i\n";
-        cout << "Root 2 = " << realPart << " - " << imaginaryPart << "i\n";
+int main()
+{
+    int r,c;
+    cout<<"Enter number of rows and columns of the matrix: ";
+    cin>>r>>c;
+    int a[r][c];
+    cout<<"Enter the elements of the matrix: ";
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            cin>>a[i][j];
+        }
     }
-
+    int max=0,row=0;
+    for(int i=0;i<r;i++)
+    {
+        int sum=0;
+        for(int j=0;j<c;j++)
+        {
+            sum+=a[i][j];
+        }
+        if(sum>max)
+        {
+            max=sum;
+            row=i;
+        }
+    }
+    cout<<"Row with maximum sum of elements: "<<row<<endl;
     return 0;
 }

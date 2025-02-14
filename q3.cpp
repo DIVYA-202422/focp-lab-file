@@ -1,25 +1,35 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-int main(){
-    int a,b,c;
-    cout<<"enter first number:";
-    cin>>a;
-    cout<<"enter second number:";
-    cin>>b;
-    cout<<"enter your choice: 1)add(+) 2)subtract(-) 3)divide(/) 4)multiply(*)";
-    cin>>c;
-
-    switch(c){
-        case 1: cout<<a+b;
-        break;
-        case 2: cout<<a-b;
-        break;
-        case 3: cout<<a/b;
-        break;
-        case 4: cout<<a*b;
-        break;
-        default: cout<<"wrong choice";
+void findMaxMin(int arr[], int n, int &max, int &min) {
+    max = arr[0];
+    min = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+        if (arr[i] < min) {
+            min = arr[i];
+        }
     }
+}
+
+int main() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    
+    int arr[n];
+    cout << "Enter " << n << " elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    
+    int max, min;
+    findMaxMin(arr, n, max, min);
+    
+    cout << "Maximum element: " << max << endl;
+    cout << "Minimum element: " << min << endl;
+    
     return 0;
 }
