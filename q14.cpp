@@ -1,35 +1,19 @@
-//Print all the boundary elements of a matrix.
-#include<iostream>
+#include <iostream>
 using namespace std;
-int main()
-{
-    int r,c;
-    cout<<"Enter number of rows and columns of the matrix: ";
-    cin>>r>>c;
-    int a[r][c];
-    cout<<"Enter the elements of the matrix: ";
-    for(int i=0;i<r;i++)
-    {
-        for(int j=0;j<c;j++)
-        {
-            cin>>a[i][j];
+int main() {
+    double a, b, c;
+   cout << "Enter the lengths of three sides of a triangle: ";
+    cin >> a >> b >> c;
+ if (a + b > c && a + c > b && b + c > a) {
+        if (a == b && b == c) {
+            cout << "The triangle is Equilateral.\n";
+        } else if (a == b || b == c || a == c) {
+            cout << "The triangle is Isosceles.\n";
+        } else {
+            cout << "The triangle is Scalene.\n";
         }
+    } else {
+        cout << "The given sides do not form a valid triangle.\n";
     }
-    cout<<"Boundary elements of the matrix: ";
-    for(int i=0;i<r;i++)
-    {
-        for(int j=0;j<c;j++)
-        {
-            if(i==0 || i==r-1 || j==0 || j==c-1)
-            {
-                cout<<a[i][j]<<" ";
-            }
-            else
-            {
-                cout<<"  ";
-            }
-        }
-    }
-    cout<<endl;
-    return 0;
+   return 0;
 }

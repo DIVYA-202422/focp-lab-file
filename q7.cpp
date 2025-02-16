@@ -1,40 +1,30 @@
-//Input an array of n numbers and remove all duplicate elements.
-#include<iostream>
+#include <iostream>
 using namespace std;
-int main()
-{
-    int n;
-    cout<<"Enter the number of elements in the array: ";
-    cin>>n;
-    int a[n];
-    cout<<"Enter "<<n<<" elements: ";
-    for(int i=0;i<n;i++)
-    {
-        cin>>a[i];
-    }
-    for(int i=0;i<n;i++)
-    {
-        for(int j=i+1;j<n;)
-        {
-            if(a[i]==a[j])
-            {
-                for(int k=j;k<n;k++)
-                {
-                    a[k]=a[k+1];
-                }
-                n--;
-            }
-            else
-            {
-                j++;
-            }
-        }
-    }
-    cout<<"Array after removing duplicates: ";
-    for(int i=0;i<n;i++)
-    {
-        cout<<a[i]<<" ";
-    }
-    cout<<endl;
+
+int main() {
+    int a, b;
+
+    cout << "Enter two numbers (a and b): ";
+    cin >> a >> b;
+
+    cout << "Before swapping: a = " << a << ", b = " << b << endl;
+
+    int temp = a;
+    a = b;
+    b = temp;
+
+    cout << "After swapping (using temp variable): a = " << a << ", b = " << b << endl;
+
+    temp = a;
+    a = b;
+    b = temp;
+
+    a = a + b;  
+    b = a - b;  
+    a = a - b;  
+
+   
+    cout << "After swapping (without temp variable): a = " << a << ", b = " << b << endl;
+
     return 0;
 }
